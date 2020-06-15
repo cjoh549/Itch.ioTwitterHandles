@@ -13,7 +13,10 @@ for x in itch['participants']:
     # get the page url
     url = x['url']
 
-    res = requests.get(url)
+    try:
+        res = requests.get(url)
+    except:
+        continue
 
     page = bs4.BeautifulSoup(res.text, "html.parser")
 
